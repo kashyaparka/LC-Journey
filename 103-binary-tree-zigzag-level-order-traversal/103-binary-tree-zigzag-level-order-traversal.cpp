@@ -23,21 +23,16 @@ public:
         {
             int s=q.size();
             vector<int> levelvector(s);
-                //left to left
-                for(int i=0;i<s;i++)
-                {
-                    auto temp=q.front();
-                    q.pop();
-                   if(level%2==0)
-                       levelvector[i]=temp->val;
-                    else
-                        levelvector[s-1-i]=temp->val;
-    
-                        if(temp->left) q.push(temp->left);
-                        if(temp->right)
-                           q.push(temp->right);
+            for(int i=0;i<s;i++)
+            {
+                auto temp=q.front();
+                q.pop();
+                if(level%2==0)  levelvector[i]=temp->val;
+                else            levelvector[s-1-i]=temp->val;
+                if(temp->left) q.push(temp->left);
+                if(temp->right)q.push(temp->right);
                    
-                }
+            }
            level++;
            v.push_back(levelvector); 
         }

@@ -15,7 +15,6 @@ public:
         {
             if(ispalindrome(it,0,it.size()-1)==true)
                 return it;
-            else continue;
         }
         return "";
     }

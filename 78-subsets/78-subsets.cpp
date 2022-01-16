@@ -1,11 +1,11 @@
 class Solution {
 public:
-    vector<vector<int>> ans;
+    set<vector<int>> ans;
     void backtrack(vector<int> &v,vector<int> &nums,int i)
     {
         if(nums.size()==i)
         {
-            ans.push_back(v);
+            ans.insert(v);
             return;
         }
         backtrack(v,nums,i+1);
@@ -17,6 +17,8 @@ public:
     {
            vector<int> v;
            backtrack(v,nums,0);
-           return ans;
+           vector<vector<int> > res{ans.begin(),ans.end()};
+        return res;
+        
     }
 };

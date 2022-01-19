@@ -8,11 +8,13 @@ public:
            ans.push_back(v);
            return;
        }
+       if(v.size()>k) return;
        if(i>9) return;
        v.push_back(i);
        backtrack(v,ans,i+1,n-i,k);
        v.pop_back();
        backtrack(v,ans,i+1,n,k);
+    //1 2 3
     }
     vector<vector<int>> combinationSum3(int k, int n) 
     {

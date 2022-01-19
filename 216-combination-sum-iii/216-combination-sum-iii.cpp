@@ -10,11 +10,16 @@ public:
        }
        if(v.size()>k) return;
        if(i>9) return;
-       v.push_back(i);
-       backtrack(v,ans,i+1,n-i,k);
-       v.pop_back();
-       backtrack(v,ans,i+1,n,k);
-    //1 2 3
+       // v.push_back(i);
+       // backtrack(v,ans,i+1,n-i,k);
+       // v.pop_back();
+       // backtrack(v,ans,i+1,n,k);  
+      for(int j=i;j<=9;j++)
+      {
+           v.push_back(j);
+           backtrack(v,ans,j+1,n-j,k);
+           v.pop_back(); 
+      }
     }
     vector<vector<int>> combinationSum3(int k, int n) 
     {

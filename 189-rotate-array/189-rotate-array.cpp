@@ -11,8 +11,8 @@ public:
             // {
             //     nums[(i + k)%nums.size()] = numsCopy[i];
             // }
-            if(nums.size()==0 || k<=0 || nums.size()==1)
-                 return;
+           // if(nums.size()==0 || k<=0 || nums.size()==1)
+             //    return;
             reverse(nums.begin(),nums.end());
             //7 6 5 4 3 2 1
             reverse(nums.begin(),nums.end()-nums.size()+k%nums.size());

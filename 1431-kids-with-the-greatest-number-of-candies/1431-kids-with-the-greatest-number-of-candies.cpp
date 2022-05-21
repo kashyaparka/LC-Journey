@@ -4,10 +4,11 @@ public:
     {
         vector<bool> ans(candies.size(),false);
         int mx=INT_MIN;
-        for(int i=0;i<candies.size();i++)
-        {
-            mx=max(mx,candies[i]);
-        }
+        // for(int i=0;i<candies.size();i++)
+        // {
+        //     mx=max(mx,candies[i]);
+        // }
+        mx = *std::max_element(candies.begin(), candies.end());
         for(int i=0;i<candies.size();i++)
         {
             int k=candies[i]+extraCandies;

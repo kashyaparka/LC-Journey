@@ -26,10 +26,12 @@ class Solution{
        {
            right_array[i]=max(right_array[i+1],arr[i]);
        }
-       long long int ans=0;
+       long long int t=0;
        for(int i=0;i<n;i++)
-            ans += min ( left_array[i] , right_array[i] ) - arr[i];
-       return ans;
+       {
+           t+=min(left_array[i],right_array[i])-arr[i];
+       }
+       return t;
     }
 };
 

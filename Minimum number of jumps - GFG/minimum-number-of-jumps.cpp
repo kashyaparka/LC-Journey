@@ -19,6 +19,7 @@ class Solution{
        {
            if(i==n-1)
                return jump;
+           if(arr[0]==0) return -1;
            maxReach=max(maxReach,arr[i]+i);
            steps--;
            if(steps==0)

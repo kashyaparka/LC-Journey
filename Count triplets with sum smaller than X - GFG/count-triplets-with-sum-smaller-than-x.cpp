@@ -16,6 +16,7 @@ class Solution{
 	      
 	        int k=sum-arr[i];
 	        int l=i+1,h=n-1;
+	        if(l>=h) break;
 	        while(l<h)
 	        {
 	           

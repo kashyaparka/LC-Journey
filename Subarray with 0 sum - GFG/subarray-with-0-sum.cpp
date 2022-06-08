@@ -13,33 +13,20 @@ class Solution{
     //Function to check whether there is a subarray present with 0-sum or not.
     bool subArrayExists(int arr[], int n)
     {
-        //-3 2 1 4 6
-        //-4 -2 1 4 5
-        // sort(arr,arr+n);
-        // int i=0;
-        // int j=n;
-        // while(i<j)
-        // {
-        //     int sum = accumulate(arr+i,arr+j,0);
-        //     if(sum==0) return true;
-        //     if(sum<0) i++;
-        //     else j--;
-        // }
-        // return false;
-           int sum=0;
-       unordered_set<int>s;
-       for(int i=0;i<n;i++){
-           sum+=arr[i];
-           if(sum==0){
-               return true;
-           }
-           if(s.find(sum)!=s.end()){
-               return true;  // if found, return true;
-           }else{  
-           s.insert(sum); // if sum not found in hash, insert
-           }
-       }
-       return false;
+       // 18
+        //-21 21 30 -7 45 49 -26 38 4 36 19 -18 19 -40 23 -20 -17 13
+        unordered_map<int,int> umap;
+        int sum=arr[0];
+        umap[sum]=1;
+        for(int i=1;i<n;i++)
+        {
+            if(arr[i]==0 || sum==0) return true;
+            sum+=arr[i];
+            if(umap[sum]!=0) return true;
+            
+            umap[sum]=1;
+        }
+        return sum==0?true:false;
     }
 };
 

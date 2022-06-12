@@ -2,21 +2,23 @@ class Solution {
 public:
     int maximumUniqueSubarray(vector<int>& nums) 
     {
+        int i=0,j=0;
         int sum=0;
-        unordered_set<int> hset;
+        map<int,int> map;
         int ans=0;
-        for(int i=0,j=0,sum=0;j<nums.size();j++)
+        while(j<nums.size())
         {
-            while(hset.find(nums[j])!=hset.end())
+            while(map.find(nums[j])!=map.end())
             {
-                hset.erase(nums[i]);
+               // cout<<sum<<" "<<i<<" "<<nums[i];
+                map.erase(nums[i]);
                 sum-=nums[i];
-                i++;    
+                i++;
             }
-            hset.insert(nums[j]);
             sum+=nums[j];
-            ans=max(sum,ans);
-            
+            map[nums[j]]=j;
+            j++;
+            ans=max(ans,sum);
         }
         return ans;
     }

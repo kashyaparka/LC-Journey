@@ -10,7 +10,8 @@ public:
         {
            if(s[i]==' ' && flag==true)
            {
-              // i--;
+              i--;
+              continue;
            }
            else if(s[i]!=' ' || flag==false)
            {
@@ -22,11 +23,6 @@ public:
                    ans+=temp;
                    ans+=' ';
                    temp.clear();
-                   // while(i>=0 && s[i]==' ')
-                   // {
-                   //     i--;
-                   //     flag=true;
-                   // }
                    flag=true;
                }
            }
@@ -34,6 +30,5 @@ public:
         }
         ans.pop_back();
         return ans;
-       
     }
 };

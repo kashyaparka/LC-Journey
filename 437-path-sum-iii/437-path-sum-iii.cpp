@@ -10,34 +10,33 @@
  * };
  */
 class Solution {
+private:
+    int count=0;
+    queue<TreeNode*> q;
 public:
-    void allnodes(queue<TreeNode*> &q,TreeNode* root)
-    {
-        if(!root)
-            return;
-         q.push(root);
-        allnodes(q,root->left);
-        allnodes(q,root->right);
-    }
-    void dfs(TreeNode* root,long long val,int &count)
+    void allnodes(TreeNode* root)
     {
         if(!root) return;
-        if(val == root -> val) count++;
-       // cout<<val<<" ";
-        dfs(root->left,val-root->val,count);
-        dfs(root->right,val-root->val,count);
         
+        q.push(root);
+        allnodes(root->left);
+        allnodes(root->right);
+    }
+    void dfs(TreeNode* root,long long val)
+    {
+        if(!root) return;
+        
+        if(val == root -> val) count++;
+        dfs(root->left,val-root->val);
+        dfs(root->right,val-root->val);
     }
     int pathSum(TreeNode* root, int targetSum) 
     {
         if(!root) return 0;
-        int count=0;
-        queue<TreeNode*> q;
-        allnodes(q,root);
-        cout<<q.size();
-        while(!q.empty())
-        {
-            dfs(q.front(),targetSum,count);
+      
+        allnodes(root);
+        while(!q.empty()){
+            dfs(q.front(),targetSum);
             q.pop();
         }
         return count;

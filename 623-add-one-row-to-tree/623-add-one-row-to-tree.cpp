@@ -56,15 +56,16 @@ public:
             int n=q.size();
             for(int i=0;i<n;i++)
             {
+                TreeNode* node=q.front();
                 if(d>1)
                 {
-                    if(q.front()->left) q.push(q.front()->left);
-                    if(q.front()->right) q.push(q.front()->right);
+                    if(node->left) q.push(node->left);
+                    if(node->right) q.push(node->right);
                 }
                 else 
                 {
-                    q.front()->left = new TreeNode(val,q.front()->left,NULL);
-                    q.front()->right = new  TreeNode(val,NULL,q.front()->right);
+                    node->left = new TreeNode(val,node->left,NULL);
+                    node->right = new  TreeNode(val,NULL,node->right);
                 }
                 q.pop();
             }

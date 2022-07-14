@@ -92,35 +92,32 @@ class Solution {
   public:
     /*This function returns true if the tree contains 
     a duplicate subtree of size 2 or more else returns false*/
-    void preorder(Node *root, vector<int>& nums){
-       if(root==NULL){
-           return;
-       }
-       nums.push_back(root->data);
-       preorder(root->left, nums);
-       preorder(root->right, nums);
-   }
-   
-   int dupSub(Node *root) {
-        // code here
-        vector<int> left, right;
-        if(root==NULL){
-            return 0;
+    unordered_map<string,int> map;
+    string solve(Node* root)
+    {
+        if(!root) return "$";
+        string s="";
+        if(!root->left && !root->right)
+        {
+            s=to_string(root->data);
+            return s;
         }
-        preorder(root->left, left);
-        preorder(root->right, right);
-        
-        int m=left.size()-1;
-        int n=right.size()-1;
-        int size=0;
-        while(m>=0 && n>=0){
-            if(left[m]!=right[n]) break;
-            m--;
-            n--;
-            size++;
+        s=s+to_string(root->data);
+        s=s+solve(root->left);
+        s=s+solve(root->right);
+        map[s]++;
+        return s;
+    }
+    int dupSub(Node *root) 
+    {
+        map.clear();
+        solve(root);
+        for(auto i:map)
+        {
+            if(i.second>=2) return true;
         }
-        return size>1?1:0;
-   }
+        return false;
+    }
 };
 
 // { Driver Code Starts.

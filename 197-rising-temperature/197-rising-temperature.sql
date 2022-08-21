@@ -1,3 +1,3 @@
 # Write your MySQL query statement below
-SELECT w1.id FROM weather w1, weather w2  WHERE  DATEDIFF(w1.recordDate,w2.recordDate)=1 AND 
-w1.temperature>w2.temperature
+SELECT t1.id FROM weather t1, weather t2  WHERE  DATEDIFF(t1.recordDate,t2.recordDate)=1 AND 
+t1.temperature>t2.temperature

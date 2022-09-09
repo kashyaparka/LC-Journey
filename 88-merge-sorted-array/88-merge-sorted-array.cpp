@@ -7,10 +7,10 @@ public:
         int tar=n+m-1;
         while(j>=0)
         {
-            if(i>=0&&nums1[i]>nums2[j])
+            if(i>=0 && nums1[i]>=nums2[j])
             {
                 nums1[tar]=nums1[i];
-                i-=1;
+                i--;
                 tar--;
             }
             else
@@ -18,7 +18,6 @@ public:
                 nums1[tar]=nums2[j];
                 j--;
                 tar--;
-                
             }
         }
     }

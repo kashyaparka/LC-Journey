@@ -21,7 +21,8 @@ public:
     }
     bool isValidBST(TreeNode* root) 
     {
-        if(!root) return false;
+        if(!root) return true;
+        
         return solve(root,-1e18,1e18);
     }
 };
